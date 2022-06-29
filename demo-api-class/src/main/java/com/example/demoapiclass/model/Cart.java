@@ -1,5 +1,6 @@
 package com.example.demoapiclass.model;
 
+import com.example.demoapiclass.model.dto.CartDto;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -27,5 +28,16 @@ public class Cart {
     // specific item is assigned.
     @JoinColumn(name = "cart_id")
     private List<Item> items = new ArrayList<>();
+    public void addItem(Item item){
+        items.add(item);
+    }
 
+    public void removeItem(Item item){
+        items.remove(item);
+    }
+    public static Cart from(CartDto cartDto){
+        Cart cart = new Cart();
+        cart.setName(cartDto.getName());
+        return cart;
+    }
 }

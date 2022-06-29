@@ -17,7 +17,7 @@ public class Item {
     private Cart cart;
 
     public static Item from(ItemDto itemDto){
-        Item item =new Item();
+        Item item = new Item();
         item.setSerialNumber(itemDto.getSerialNumber());
         return item;
     }
